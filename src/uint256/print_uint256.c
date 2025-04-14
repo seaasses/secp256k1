@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "uint256/printUint256.h"
+#include "uint256/print_uint256.h"
 
-void printUint256(UInt256 x) {
+void print_uint256(UInt256 x) {
     for (int i = 0; i < 4; ++i) {
         unsigned long long value = x.limbs[i];
         for (int i = 7; i >= 0; i--) {
@@ -9,4 +9,5 @@ void printUint256(UInt256 x) {
             printf("0x%02X ", byte);
         }
     }
+    printf("\n");
 }

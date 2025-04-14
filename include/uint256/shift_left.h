@@ -3,6 +3,6 @@
 
 #include "structs/uint256.h"
 
-void uint256ShiftLeft(const UInt256 *x, UInt256 *result);
+void uint256_shift_left(const UInt256 *x, UInt256 *result);
 
 #endif

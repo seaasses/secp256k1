@@ -3,6 +3,6 @@
 
 #include "structs/uint256.h"
 
-void printUint256(UInt256 x);
+void print_uint256(UInt256 x);
 
 #endif

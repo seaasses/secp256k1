@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Iinclude -Wall -Wextra
-SRC = src/uint256/shiftLeft.c src/uint256/printUint256.c
+SRC = src/uint256/shift_left.c src/uint256/print_uint256.c
 TARGET = a.out 
 
 all: $(TARGET)
