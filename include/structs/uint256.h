@@ -4,6 +4,6 @@
 typedef struct
 {
     unsigned long long limbs[4];
-} UInt256;
+} Uint256;
 
 #endif
