@@ -78,7 +78,7 @@ int main(void)
     RUN_TEST(test_addition_with_overflow_flag_big_numbers_that_overflow);
     RUN_TEST(test_addition_with_overflow_flag_big_numbers_that_do_not_overflow);
 
-    // subtraction with underflow flag
+    // subtraction 
     RUN_TEST(test_subtraction_1_0);
     RUN_TEST(test_subtraction_1_1);
     RUN_TEST(test_subtraction_3_2);
