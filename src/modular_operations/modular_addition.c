@@ -1,5 +1,4 @@
 #include "modular_operations/modular_addition.h"
-#include "uint256/shift_left.h"
 #include "uint256/subtraction.h"
 #include "uint256/addition_with_overflow_flag.h"
 #include "constants/secp256k1.h"
@@ -29,7 +28,7 @@ inline void modular_addition(const Uint256 *a, const Uint256 *b, Uint256 *result
 
   to_subtract_mask = -(to_subtract_mask | ((unsigned long long) overflow_flag));
 
-  const Uint256 to_subtract = (Uint256){.limbs = {
+  const Uint256 to_subtract = {.limbs = {
                                            SECP256K1_P_0 & to_subtract_mask,
                                            SECP256K1_P_1 & to_subtract_mask,
                                            SECP256K1_P_2 & to_subtract_mask,
