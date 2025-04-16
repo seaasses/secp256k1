@@ -6,6 +6,7 @@
 #include "tests/uint256/subtraction_with_underflow_flag.c"
 #include "tests/uint256/subtraction.c"
 #include "tests/modular_operations/modular_double.c"
+#include "tests/modular_operations/modular_addition.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -129,6 +130,17 @@ int main(void)
     RUN_TEST(test_double_ffffffffffffffff_0000000000000000_limbs_pattern);
     RUN_TEST(test_double_0000000000000000_ffffffffffffffff_limbs_pattern);
     RUN_TEST(test_double_bit_inside_byte);
+
+
+    // modular addition
+
+    RUN_TEST(test_modular_addition_1_1);
+    RUN_TEST(test_modular_addition_2_3);
+    RUN_TEST(test_modular_addition_p_minus_1_plus_1);
+    RUN_TEST(test_modular_addition_p_minus_1_plus_2);
+    RUN_TEST(test_modular_addition_big_numbers_that_pass_p_but_dont_overflow_256_bits);
+    RUN_TEST(test_modular_addition_big_numbers_that_overflow_256_bits);
+
 
 
 
