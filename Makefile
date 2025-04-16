@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Iinclude -Wall -Wextra
-SRC = src/uint256/addition_with_overflow_flag.c src/uint256/shift_left.c src/uint256/shift_right.c src/uint256/print_uint256.c src/unity/unity.c src/unity/unity_extension.c
+SRC = src/uint256/addition.c src/uint256/addition_with_overflow_flag.c src/uint256/shift_left.c src/uint256/shift_right.c src/uint256/print_uint256.c src/unity/unity.c src/unity/unity_extension.c
 TARGET = a.out 
 
 all: $(TARGET)
