@@ -1,7 +1,6 @@
 #include "uint256/shift_left.h"
 
-#pragma inline
-void uint256_shift_left(const Uint256 *x, Uint256 *result)
+inline void uint256_shift_left(const Uint256 *x, Uint256 *result)
 {
   // inplace safe
   result->limbs[0] = (x->limbs[0] << 1) | (x->limbs[1] >> 63);

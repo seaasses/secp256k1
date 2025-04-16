@@ -1,7 +1,6 @@
 #include "uint256/subtraction.h"
 
-#pragma inline
-void uint256_subtraction(const Uint256 *a, const Uint256 *b, Uint256 *result)
+inline void uint256_subtraction(const Uint256 *a, const Uint256 *b, Uint256 *result)
 {
     // inplace unsafe
 

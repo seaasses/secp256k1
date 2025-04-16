@@ -1,7 +1,6 @@
 #include "uint256/subtraction_with_underflow_flag.h"
 
-#pragma inline
-void uint256_subtraction_with_underflow_flag(const Uint256 *a, const Uint256 *b,
+inline void uint256_subtraction_with_underflow_flag(const Uint256 *a, const Uint256 *b,
                                          Uint256 *result, unsigned int *underflowFlag)
 {
     // inplace unsafe

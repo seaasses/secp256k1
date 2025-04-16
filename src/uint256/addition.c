@@ -1,7 +1,6 @@
 #include "uint256/addition.h"
 
-#pragma inline
-void uint256_addition(const Uint256 *a, const Uint256 *b,
+inline void uint256_addition(const Uint256 *a, const Uint256 *b,
                                          Uint256 *result)
 {
   // inplace unsafe
