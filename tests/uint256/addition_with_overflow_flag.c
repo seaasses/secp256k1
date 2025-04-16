@@ -2,7 +2,7 @@
 #include "unity/unity.h"
 #include "uint256/addition_with_overflow_flag.h"
 
-void test_addition_2_3(void)
+void test_addition_with_overflow_flag_2_3(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -18,7 +18,7 @@ void test_addition_2_3(void)
     TEST_ASSERT_EQUAL_UINT32(0, overflow_flag);
 }
 
-void test_addition_carry_on_limb_3(void)
+void test_addition_with_overflow_flag_carry_on_limb_3(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -54,7 +54,7 @@ void test_addition_carry_on_limb_3(void)
     TEST_ASSERT_EQUAL_UINT32(0, overflow_flag);
 }
 
-void test_addition_carry_on_limb_2(void)
+void test_addition_with_overflow_flag_carry_on_limb_2(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -87,7 +87,7 @@ void test_addition_carry_on_limb_2(void)
     TEST_ASSERT_EQUAL_UINT32(0, overflow_flag);
 }
 
-void test_addition_carry_on_limb_1(void)
+void test_addition_with_overflow_flag_carry_on_limb_1(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -120,7 +120,7 @@ void test_addition_carry_on_limb_1(void)
     TEST_ASSERT_EQUAL_UINT32(0, overflow_flag);
 }
 
-void test_addition_overflow(void)
+void test_addition_with_overflow_flag_overflow(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -148,7 +148,7 @@ void test_addition_overflow(void)
     TEST_ASSERT_EQUAL_UINT32(1, overflow_flag);
 }
 
-void test_addition_all_bits_set_plus_1(void)
+void test_addition_with_overflow_flag_all_bits_set_plus_1(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -171,7 +171,7 @@ void test_addition_all_bits_set_plus_1(void)
     TEST_ASSERT_EQUAL_UINT32(1, overflow_flag);
 }
 
-void test_addition_all_bits_set_plus_all_bits_set(void)
+void test_addition_with_overflow_flag_all_bits_set_plus_all_bits_set(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -202,7 +202,7 @@ void test_addition_all_bits_set_plus_all_bits_set(void)
     TEST_ASSERT_EQUAL_UINT32(1, overflow_flag);
 }
 
-void test_addition_0_1_bits_pattern_plus_0_1_bits_pattern(void)
+void test_addition_with_overflow_flag_0_1_bits_pattern_plus_0_1_bits_pattern(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -235,7 +235,7 @@ void test_addition_0_1_bits_pattern_plus_0_1_bits_pattern(void)
     TEST_ASSERT_EQUAL_UINT32(0, overflow_flag);
 }
 
-void test_addition_1_0_bits_pattern_plus_1_0_bits_pattern(void)
+void test_addition_with_overflow_flag_1_0_bits_pattern_plus_1_0_bits_pattern(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -267,7 +267,7 @@ void test_addition_1_0_bits_pattern_plus_1_0_bits_pattern(void)
     TEST_ASSERT_EQUAL_UINT32(1, overflow_flag);
 }
 
-void test_addition_1_0_bits_pattern_plus_0_1_bits_pattern(void)
+void test_addition_with_overflow_flag_1_0_bits_pattern_plus_0_1_bits_pattern(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -298,7 +298,7 @@ void test_addition_1_0_bits_pattern_plus_0_1_bits_pattern(void)
     TEST_ASSERT_EQUAL_UINT32(0, overflow_flag);
 }
 
-void test_addition_big_numbers_that_overflow(void)
+void test_addition_with_overflow_flag_big_numbers_that_overflow(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
@@ -329,7 +329,7 @@ void test_addition_big_numbers_that_overflow(void)
     TEST_ASSERT_EQUAL_UINT32(1, overflow_flag);
 }
 
-void test_addition_big_numbers_that_do_not_overflow(void)
+void test_addition_with_overflow_flag_big_numbers_that_do_not_overflow(void)
 {
     Uint256 result;
     unsigned int overflow_flag;
