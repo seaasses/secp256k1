@@ -9,7 +9,7 @@ inline void modular_double(const Uint256 *a, Uint256 *result)
   // inplace safe
 
   Uint256 tmp;
-  unsigned long tmpBool = a->limbs[0] >> 63; // now tmpBool is 1 if most significant bit is set, 0 otherwise
+  unsigned long long tmpBool = a->limbs[0] >> 63; // now tmpBool is 1 if most significant bit is set, 0 otherwise
   uint256_shift_left(a, &tmp);
 
   // cases:
@@ -20,7 +20,7 @@ inline void modular_double(const Uint256 *a, Uint256 *result)
   // so, if most significant bit is 1 (case 2 or 3), we need to subtract p
   // if result is outside of 0 secp256k1, subtract p too
 
-  unsigned long isOutsideSecp256k1Space = 0;
+  unsigned long long isOutsideSecp256k1Space = 0;
   isOutsideSecp256k1Space |= (tmp.limbs[0] > SECP256K1_P_0);
   isOutsideSecp256k1Space |= ((tmp.limbs[0] == SECP256K1_P_0) & (tmp.limbs[1] > SECP256K1_P_1));
   isOutsideSecp256k1Space |= ((tmp.limbs[0] == SECP256K1_P_0) & (tmp.limbs[1] == SECP256K1_P_1) & (tmp.limbs[2] > SECP256K1_P_2));
