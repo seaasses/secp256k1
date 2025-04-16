@@ -5,6 +5,7 @@
 #include "tests/uint256/addition.c"
 #include "tests/uint256/subtraction_with_underflow_flag.c"
 #include "tests/uint256/subtraction.c"
+#include "tests/modular_operations/modular_double.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -108,6 +109,33 @@ int main(void)
     RUN_TEST(test_subtraction_with_underflow_flag_0_1_bits_pattern_minus_1_0_bits_pattern);
     RUN_TEST(test_subtraction_with_underflow_flag_big_numbers_that_underflow);
     RUN_TEST(test_subtraction_with_underflow_flag_big_numbers_that_do_not_underflow);
+
+    // MODULAR OPERATIONS
+
+    // modular double
+
+    RUN_TEST(test_modular_double_3);
+    RUN_TEST(test_modular_double_0);
+    RUN_TEST(test_double_bit_between_limbs_3_2);
+    RUN_TEST(test_double_bit_between_limbs_2_1);
+    RUN_TEST(test_double_bit_between_limbs_1_0);
+    RUN_TEST(test_double_just_most_significant_bit_set);
+    RUN_TEST(test_double_p_minus_1);
+    RUN_TEST(test_double_less_than_max_256_bits_after_doubled);
+    RUN_TEST(test_double_0_1_bits_pattern);
+    RUN_TEST(test_double_1_0_bits_pattern);
+    RUN_TEST(test_double_00_ff_bytes_pattern);
+    RUN_TEST(test_double_ff_00_bytes_pattern);
+    RUN_TEST(test_double_ffffffffffffffff_0000000000000000_limbs_pattern);
+    RUN_TEST(test_double_0000000000000000_ffffffffffffffff_limbs_pattern);
+    RUN_TEST(test_double_bit_inside_byte);
+
+
+
+
+
+
+
 
 
 
