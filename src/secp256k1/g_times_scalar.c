@@ -273,7 +273,6 @@ inline void g_times_scalar(const Uint256 *scalar, Point *result_point)
     unsigned long long limb;
 
     unsigned long long is_not_first_non_zero_window = 0;
-    unsigned long long mask_is_zero;
 
     unsigned long long mask_use_g_times_window = 0;        // we do not had a non-zero window yet - this window can be zero or not
     unsigned long long mask_sum_g_times_window = 0;        // window is not zero and this is not the first non-zero window
