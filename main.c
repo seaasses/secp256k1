@@ -7,6 +7,7 @@
 #include "tests/uint256/subtraction.c"
 #include "tests/modular_operations/modular_double.c"
 #include "tests/modular_operations/modular_addition.c"
+#include "tests/modular_operations/modular_subtraction.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -140,6 +141,16 @@ int main(void)
     RUN_TEST(test_modular_addition_p_minus_1_plus_2);
     RUN_TEST(test_modular_addition_big_numbers_that_pass_p_but_dont_overflow_256_bits);
     RUN_TEST(test_modular_addition_big_numbers_that_overflow_256_bits);
+
+
+    // modular subtraction
+    RUN_TEST(test_modular_subtraction_1_1);
+    RUN_TEST(test_modular_subtraction_3_2);
+    RUN_TEST(test_modular_subtraction_p_minus_1_minus_p_minus_1);
+    RUN_TEST(test_modular_subtraction_two_big_numbers_that_do_not_underflow);
+    RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_more_than_p);
+    RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_less_than_p);
+
 
 
 
