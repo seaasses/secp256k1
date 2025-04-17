@@ -7,12 +7,12 @@ inline void modular_exponentiation(const Uint256 *base, const Uint256 *exponent,
     // inplace semi safe. Safe when result = base
 
     // base will be < modulus, so no need to modulus before starting
-    Uint256 localBase = *base;
+    Uint256 local_base = *base;
     Uint256 tmp;
-    Uint256 toMultiply;
+    Uint256 to_multiply;
 
     unsigned long long limb;
-    unsigned long long toMultiplyMask;
+    unsigned long long to_multiply_mask;
 
     *result = (Uint256){.limbs = {0, 0, 0, 1}};
 
@@ -23,33 +23,33 @@ inline void modular_exponentiation(const Uint256 *base, const Uint256 *exponent,
 #pragma unroll
         for (unsigned int i = 0; i < 32; ++i)
         {
-            toMultiplyMask = -(limb & 1);
-            toMultiply = (Uint256){
+            to_multiply_mask = -(limb & 1);
+            to_multiply = (Uint256){
                 .limbs = {
-                    localBase.limbs[0] & toMultiplyMask,
-                    localBase.limbs[1] & toMultiplyMask,
-                    localBase.limbs[2] & toMultiplyMask,
-                    (localBase.limbs[3] & toMultiplyMask) | ((~toMultiplyMask) & 1)}};
+                    local_base.limbs[0] & to_multiply_mask,
+                    local_base.limbs[1] & to_multiply_mask,
+                    local_base.limbs[2] & to_multiply_mask,
+                    (local_base.limbs[3] & to_multiply_mask) | ((~to_multiply_mask) & 1)}};
 
-            modular_multiplication(result, &toMultiply, result);
+            modular_multiplication(result, &to_multiply, result);
 
-            modular_multiplication(&localBase, &localBase, &tmp); // base = base^2
+            modular_multiplication(&local_base, &local_base, &tmp); // base = base^2
             // localBase is in tmp now, instead of *localBase = tmp, I will use tmp as localBase
             // inside this iteration and loop half as long
 
             limb >>= 1;
-            toMultiplyMask = -(limb & 1);
+            to_multiply_mask = -(limb & 1);
 
-            toMultiply = (Uint256){
+            to_multiply = (Uint256){
                 .limbs = {
-                    tmp.limbs[0] & toMultiplyMask,
-                    tmp.limbs[1] & toMultiplyMask,
-                    tmp.limbs[2] & toMultiplyMask,
-                    (tmp.limbs[3] & toMultiplyMask) | ((~toMultiplyMask) & 1)}};
+                    tmp.limbs[0] & to_multiply_mask,
+                    tmp.limbs[1] & to_multiply_mask,
+                    tmp.limbs[2] & to_multiply_mask,
+                    (tmp.limbs[3] & to_multiply_mask) | ((~to_multiply_mask) & 1)}};
 
-            modular_multiplication(result, &toMultiply, result);
+            modular_multiplication(result, &to_multiply, result);
 
-            modular_multiplication(&tmp, &tmp, &localBase); // base = base^2
+            modular_multiplication(&tmp, &tmp, &local_base); // base = base^2
             // localBase is again in localBase
             limb >>= 1;
         }
