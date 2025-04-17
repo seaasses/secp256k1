@@ -9,6 +9,7 @@
 #include "tests/modular_operations/modular_addition.c"
 #include "tests/modular_operations/modular_subtraction.c"
 #include "tests/modular_operations/modular_multiplication.c"
+#include "tests/modular_operations/modular_exponentiation.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -82,7 +83,7 @@ int main(void)
     RUN_TEST(test_addition_with_overflow_flag_big_numbers_that_overflow);
     RUN_TEST(test_addition_with_overflow_flag_big_numbers_that_do_not_overflow);
 
-    // subtraction 
+    // subtraction
     RUN_TEST(test_subtraction_1_0);
     RUN_TEST(test_subtraction_1_1);
     RUN_TEST(test_subtraction_3_2);
@@ -133,7 +134,6 @@ int main(void)
     RUN_TEST(test_double_0000000000000000_ffffffffffffffff_limbs_pattern);
     RUN_TEST(test_double_bit_inside_byte);
 
-
     // modular addition
 
     RUN_TEST(test_modular_addition_1_1);
@@ -142,7 +142,6 @@ int main(void)
     RUN_TEST(test_modular_addition_p_minus_1_plus_2);
     RUN_TEST(test_modular_addition_big_numbers_that_pass_p_but_dont_overflow_256_bits);
     RUN_TEST(test_modular_addition_big_numbers_that_overflow_256_bits);
-
 
     // modular subtraction
     RUN_TEST(test_modular_subtraction_1_1);
@@ -160,20 +159,16 @@ int main(void)
     RUN_TEST(test_modular_multiplication_p_minus_1_times_big_number);
     RUN_TEST(test_modular_multiplication_two_big_numbers);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // modular exponentiation
+    RUN_TEST(test_modular_exponentiation_2_3);
+    RUN_TEST(test_modular_exponentiation_p_minus_1_power_0);
+    RUN_TEST(test_modular_exponentiation_p_minus_1_power_1);
+    RUN_TEST(test_modular_exponentiation_p_minus_1_power_2);
+    RUN_TEST(test_modular_exponentiation_p_minus_1_power_3);
+    RUN_TEST(test_modular_exponentiation_p_minus_1_power_p_minus_1);
+    RUN_TEST(test_modular_exponentiation_p_minus_2_power_p_minus_1);
+    RUN_TEST(test_modular_exponentiation_p_minus_2_power_p_minus_2);
+    RUN_TEST(test_modular_exponentiation_two_big_numbers);
 
     return UNITY_END();
 }
