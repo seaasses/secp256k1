@@ -10,6 +10,7 @@
 #include "tests/modular_operations/modular_subtraction.c"
 #include "tests/modular_operations/modular_multiplication.c"
 #include "tests/modular_operations/modular_exponentiation.c"
+#include "tests/secp256k1/double_point.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -169,6 +170,15 @@ int main(void)
     RUN_TEST(test_modular_exponentiation_p_minus_2_power_p_minus_1);
     RUN_TEST(test_modular_exponentiation_p_minus_2_power_p_minus_2);
     RUN_TEST(test_modular_exponentiation_two_big_numbers);
+
+    // SECP256K1
+
+    // double point
+    RUN_TEST(test_double_random_point_0);
+    RUN_TEST(test_double_random_point_1);
+    RUN_TEST(test_double_random_point_2);
+    RUN_TEST(test_double_random_point_3);
+    RUN_TEST(test_double_random_point_4);
 
     return UNITY_END();
 }
