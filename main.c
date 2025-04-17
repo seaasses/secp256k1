@@ -8,6 +8,7 @@
 #include "tests/modular_operations/modular_double.c"
 #include "tests/modular_operations/modular_addition.c"
 #include "tests/modular_operations/modular_subtraction.c"
+#include "tests/modular_operations/modular_multiplication.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -151,8 +152,13 @@ int main(void)
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_more_than_p);
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_less_than_p);
 
+    // modular multiplication
 
-
+    RUN_TEST(test_modular_multiplication_2_3);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_2);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_p_minus_1);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_big_number);
+    RUN_TEST(test_modular_multiplication_two_big_numbers);
 
 
 
