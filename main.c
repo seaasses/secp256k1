@@ -12,6 +12,7 @@
 #include "tests/modular_operations/modular_exponentiation.c"
 #include "tests/secp256k1/double_point.c"
 #include "tests/secp256k1/point_addition.c"
+#include "tests/secp256k1/g_times_scalar.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -187,6 +188,15 @@ int main(void)
     RUN_TEST(test_random_point_addition_2);
     RUN_TEST(test_random_point_addition_3);
     RUN_TEST(test_random_point_addition_4);
+
+    // g times scalar
+
+    RUN_TEST(test_generator_point_times_1);
+    RUN_TEST(test_generator_point_times_big_number_0);
+    RUN_TEST(test_generator_point_times_big_number_1);
+    RUN_TEST(test_generator_point_times_big_number_2);
+
+
 
     return UNITY_END();
 }
