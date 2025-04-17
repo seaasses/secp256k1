@@ -9,7 +9,7 @@ inline void g_times_scalar(const Uint256 *scalar, Point *result_point)
 
     // this does not work for scalar = 0. We do not have a way to represent the point at infinity
 
-    static Point g_times[256] = {
+    static const Point g_times[256] = {
         {.x = {.limbs = {0, 0, 0, 0}}, .y = {.limbs = {0, 0, 0, 0}}}, // will never be used
         {.x = {.limbs = {0x79be667ef9dcbbac, 0x55a06295ce870b07, 0x029bfcdb2dce28d9, 0x59f2815b16f81798}}, .y = {.limbs = {0x483ada7726a3c465, 0x5da4fbfc0e1108a8, 0xfd17b448a6855419, 0x9c47d08ffb10d4b8}}},
         {.x = {.limbs = {0xc6047f9441ed7d6d, 0x3045406e95c07cd8, 0x5c778e4b8cef3ca7, 0xabac09b95c709ee5}}, .y = {.limbs = {0x1ae168fea63dc339, 0xa3c58419466ceaee, 0xf7f632653266d0e1, 0x236431a950cfe52a}}},
