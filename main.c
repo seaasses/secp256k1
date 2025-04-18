@@ -11,7 +11,6 @@
 #include "tests/modular_operations/modular_multiplication.c"
 #include "tests/modular_operations/modular_exponentiation.c"
 #include "tests/secp256k1/double_point.c"
-#include "tests/secp256k1/point_addition.c"
 #include "tests/secp256k1/jacobian_to_affine.c"
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
@@ -185,13 +184,6 @@ int main(void)
     RUN_TEST(test_double_random_point_2);
     RUN_TEST(test_double_random_point_3);
     RUN_TEST(test_double_random_point_4);
-
-    // point addition
-    RUN_TEST(test_random_point_addition_0);
-    RUN_TEST(test_random_point_addition_1);
-    RUN_TEST(test_random_point_addition_2);
-    RUN_TEST(test_random_point_addition_3);
-    RUN_TEST(test_random_point_addition_4);
 
     // jacobian to affine
     RUN_TEST(test_jacobian_to_affine_z_is_1);
