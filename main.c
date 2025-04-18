@@ -13,6 +13,7 @@
 #include "tests/secp256k1/double_point.c"
 #include "tests/secp256k1/point_addition.c"
 #include "tests/secp256k1/g_times_scalar.c"
+#include "tests/secp256k1/jacobian_to_affine.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -196,7 +197,13 @@ int main(void)
     RUN_TEST(test_generator_point_times_big_number_1);
     RUN_TEST(test_generator_point_times_big_number_2);
 
-
+    // jacobian to affine
+    RUN_TEST(test_jacobian_to_affine_z_is_1);
+    RUN_TEST(test_jacobian_to_affine_random_point_0);
+    RUN_TEST(test_jacobian_to_affine_random_point_1);
+    RUN_TEST(test_jacobian_to_affine_random_point_2);
+    RUN_TEST(test_jacobian_to_affine_random_point_3);
+    RUN_TEST(test_jacobian_to_affine_random_point_4);
 
     return UNITY_END();
 }
