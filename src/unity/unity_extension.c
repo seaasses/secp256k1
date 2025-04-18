@@ -22,3 +22,16 @@ void assert_point_equal(Point expected, Point actual)
     sprintf(message, "Y error");
     assert_uint256_equal(expected.y, actual.y);
 }
+
+void assert_jacobian_point_equal(JacobianPoint expected, JacobianPoint actual)
+{
+    char message[100];
+    sprintf(message, "X error");
+    assert_uint256_equal(expected.x, actual.x);
+
+    sprintf(message, "Y error");
+    assert_uint256_equal(expected.y, actual.y);
+
+    sprintf(message, "Z error");
+    assert_uint256_equal(expected.z, actual.z);
+}

@@ -14,6 +14,7 @@
 #include "tests/secp256k1/point_addition.c"
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_to_affine.c"
+#include "tests/secp256k1/jacobian_point_addition.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -25,6 +26,7 @@ int main(void)
     // UINT256
 
     // shift_left
+
     RUN_TEST(test_shift_left_0);
     RUN_TEST(test_shift_left_1);
     RUN_TEST(test_shift_left_between_limbs_3_2);
@@ -204,6 +206,14 @@ int main(void)
     RUN_TEST(test_jacobian_to_affine_random_point_2);
     RUN_TEST(test_jacobian_to_affine_random_point_3);
     RUN_TEST(test_jacobian_to_affine_random_point_4);
+
+    // jacobian point addition
+    RUN_TEST(test_jacobian_point_addition_z_is_1);
+    RUN_TEST(test_jacobian_point_addition_random_points_0);
+    RUN_TEST(test_jacobian_point_addition_random_points_1);
+    RUN_TEST(test_jacobian_point_addition_random_points_2);
+    RUN_TEST(test_jacobian_point_addition_random_points_3);
+    RUN_TEST(test_jacobian_point_addition_random_points_4);
 
     return UNITY_END();
 }
