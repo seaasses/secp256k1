@@ -208,7 +208,7 @@ int main(void)
     RUN_TEST(test_jacobian_double_random_point_2);
     RUN_TEST(test_jacobian_double_random_point_3);
 
-    // g times scalar using jacobian internaly
+    // g times scalar
 
     RUN_TEST(test_generator_point_times_1);
     RUN_TEST(test_generator_point_times_big_number_0);
