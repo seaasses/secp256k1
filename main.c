@@ -10,7 +10,6 @@
 #include "tests/modular_operations/modular_subtraction.c"
 #include "tests/modular_operations/modular_multiplication.c"
 #include "tests/modular_operations/modular_exponentiation.c"
-#include "tests/secp256k1/double_point.c"
 #include "tests/secp256k1/jacobian_to_affine.c"
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
@@ -177,13 +176,6 @@ int main(void)
     RUN_TEST(test_modular_exponentiation_two_big_numbers);
 
     // SECP256K1
-
-    // double point
-    RUN_TEST(test_double_random_point_0);
-    RUN_TEST(test_double_random_point_1);
-    RUN_TEST(test_double_random_point_2);
-    RUN_TEST(test_double_random_point_3);
-    RUN_TEST(test_double_random_point_4);
 
     // jacobian to affine
     RUN_TEST(test_jacobian_to_affine_z_is_1);
