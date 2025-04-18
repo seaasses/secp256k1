@@ -1,10 +1,10 @@
 #include "constants/secp256k1.h"
-#include "secp256k1/g_times_scalar_using_jacobian_internaly.h"
+#include "secp256k1/g_times_scalar.h"
 #include "secp256k1/jacobian_double_point.h"
 #include "secp256k1/jacobian_point_addition_jacobian_plus_affine.h"
 #include "secp256k1/jacobian_to_affine.h"
 #include <stdio.h>
-inline void g_times_scalar_using_jacobian_internaly(const Uint256 *scalar, Point *result_point)
+inline void g_times_scalar(const Uint256 *scalar, Point *result_point)
 {
 
     static const Point g_times[256] = {

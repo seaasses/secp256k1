@@ -1,10 +1,10 @@
 #include "structs/point.h"
 #include "structs/uint256.h"
 #include "unity/unity.h"
-#include "secp256k1/g_times_scalar_using_jacobian_internaly.h"
+#include "secp256k1/g_times_scalar.h"
 #include "constants/secp256k1.h"
 
-void test_generator_point_times_1_jacobian_internaly(void)
+void test_generator_point_times_1(void)
 {
     Point result_point;
 
@@ -13,12 +13,12 @@ void test_generator_point_times_1_jacobian_internaly(void)
 
     Point expected_point = SECP256K1_G;
 
-    g_times_scalar_using_jacobian_internaly(&scalar, &result_point);
+    g_times_scalar(&scalar, &result_point);
 
     ASSERT_POINT_EQUAL(expected_point, result_point);
 }
 
-void test_generator_point_times_big_number_0_jacobian_internaly(void)
+void test_generator_point_times_big_number_0(void)
 {
     Point result_point;
 
@@ -36,12 +36,12 @@ void test_generator_point_times_big_number_0_jacobian_internaly(void)
 
               }}};
 
-    g_times_scalar_using_jacobian_internaly(&scalar, &result_point);
+    g_times_scalar(&scalar, &result_point);
 
     ASSERT_POINT_EQUAL(expected_point, result_point);
 }
 
-void test_generator_point_times_big_number_1_jacobian_internaly(void)
+void test_generator_point_times_big_number_1(void)
 {
     Point result_point;
 
@@ -65,12 +65,12 @@ void test_generator_point_times_big_number_1_jacobian_internaly(void)
 
               }}};
 
-    g_times_scalar_using_jacobian_internaly(&scalar, &result_point);
+    g_times_scalar(&scalar, &result_point);
 
     ASSERT_POINT_EQUAL(expected_point, result_point);
 }
 
-void test_generator_point_times_big_number_2_jacobian_internaly(void)
+void test_generator_point_times_big_number_2(void)
 {
     Point result_point;
 
@@ -90,7 +90,7 @@ void test_generator_point_times_big_number_2_jacobian_internaly(void)
 
               }}};
 
-    g_times_scalar_using_jacobian_internaly(&scalar, &result_point);
+    g_times_scalar(&scalar, &result_point);
 
     ASSERT_POINT_EQUAL(expected_point, result_point);
 }
