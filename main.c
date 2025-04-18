@@ -16,6 +16,7 @@
 #include "tests/secp256k1/jacobian_to_affine.c"
 #include "tests/secp256k1/jacobian_point_addition.c"
 #include "tests/secp256k1/jacobian_double_point.c"
+#include "tests/secp256k1/g_times_scalar_using_jacobian_internaly.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -222,6 +223,13 @@ int main(void)
     RUN_TEST(test_jacobian_double_random_point_1);
     RUN_TEST(test_jacobian_double_random_point_2);
     RUN_TEST(test_jacobian_double_random_point_3);
+
+    // g times scalar using jacobian internaly
+
+    RUN_TEST(test_generator_point_times_1_jacobian_internaly);
+    RUN_TEST(test_generator_point_times_big_number_0_jacobian_internaly);
+    RUN_TEST(test_generator_point_times_big_number_1_jacobian_internaly);
+    RUN_TEST(test_generator_point_times_big_number_2_jacobian_internaly);
 
     return UNITY_END();
 }
