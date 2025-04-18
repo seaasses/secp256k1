@@ -12,9 +12,7 @@
 #include "tests/modular_operations/modular_exponentiation.c"
 #include "tests/secp256k1/double_point.c"
 #include "tests/secp256k1/point_addition.c"
-#include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_to_affine.c"
-#include "tests/secp256k1/jacobian_point_addition.c"
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/g_times_scalar_using_jacobian_internaly.c"
 #include "tests/secp256k1/jacobian_point_addition_jacobian_plus_affine.c"
@@ -195,13 +193,6 @@ int main(void)
     RUN_TEST(test_random_point_addition_3);
     RUN_TEST(test_random_point_addition_4);
 
-    // g times scalar
-
-    RUN_TEST(test_generator_point_times_1);
-    RUN_TEST(test_generator_point_times_big_number_0);
-    RUN_TEST(test_generator_point_times_big_number_1);
-    RUN_TEST(test_generator_point_times_big_number_2);
-
     // jacobian to affine
     RUN_TEST(test_jacobian_to_affine_z_is_1);
     RUN_TEST(test_jacobian_to_affine_random_point_0);
@@ -209,14 +200,6 @@ int main(void)
     RUN_TEST(test_jacobian_to_affine_random_point_2);
     RUN_TEST(test_jacobian_to_affine_random_point_3);
     RUN_TEST(test_jacobian_to_affine_random_point_4);
-
-    // jacobian point addition
-        RUN_TEST(test_jacobian_point_addition_z_is_1);
-    RUN_TEST(test_jacobian_point_addition_random_points_0);
-    RUN_TEST(test_jacobian_point_addition_random_points_1);
-    RUN_TEST(test_jacobian_point_addition_random_points_2);
-    RUN_TEST(test_jacobian_point_addition_random_points_3);
-    RUN_TEST(test_jacobian_point_addition_random_points_4);
 
     // jacobian double point
     RUN_TEST(test_jacobian_double_point_z_is_1);
