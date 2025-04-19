@@ -5,6 +5,7 @@
 #include "tests/uint256/addition.c"
 #include "tests/uint256/subtraction_with_underflow_flag.c"
 #include "tests/uint256/subtraction.c"
+#include "tests/uint256/multiplication.c"
 #include "tests/modular_operations/modular_double.c"
 #include "tests/modular_operations/modular_addition.c"
 #include "tests/modular_operations/modular_subtraction.c"
@@ -206,6 +207,17 @@ int main(void)
     RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_2);
     RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_3);
     RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_4);
+
+    RUN_TEST(test_multiplication_2_3);
+    RUN_TEST(test_multiplication_least_significant_limb_simple_overflow);
+    RUN_TEST(test_multiplication_least_significant_limb_max_64_bits_times_max_64_bits);
+    RUN_TEST(test_multiplication_least_significant_limb_overflow_random_number);
+    RUN_TEST(test_multiplication_limb_2_overflow);
+    RUN_TEST(test_multiplication_limb_2_random_2_limbs_numbers_that_carry_to_next_limb);
+    RUN_TEST(test_multiplication_2_full_limbs);
+    RUN_TEST(test_multiplication_3_full_limbs);
+    RUN_TEST(test_multiplication_2_big_numbers_3_limbs_each);
+    RUN_TEST(test_multiplication_4_full_limbs);
 
     return UNITY_END();
 }
