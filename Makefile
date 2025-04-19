@@ -6,7 +6,12 @@ TARGET = a.out
 all: $(TARGET)
 
 $(TARGET): main.c $(SRC)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) -O3 $(CFLAGS) $^ -o $@
+
+compile-test: $(TARGET)
+$(TARGET): main.c $(SRC)
+	$(CC) -O3 -g $(CFLAGS) $^ -o $@
 
 clean:
 	rm -f $(TARGET)
+
