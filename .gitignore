@@ -1,0 +1,5 @@
+*.out
+opencl/
+settings.json
+*.folded
+perf.data*
