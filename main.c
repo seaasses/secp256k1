@@ -15,6 +15,7 @@
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_point_addition_jacobian_plus_affine.c"
+#include "tests/uint512/addition_with_overflow_flag.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -218,6 +219,17 @@ int main(void)
     RUN_TEST(test_multiplication_3_full_limbs);
     RUN_TEST(test_multiplication_2_big_numbers_3_limbs_each);
     RUN_TEST(test_multiplication_4_full_limbs);
+
+    // UINT512
+
+    // uint512 addition with overflow flag
+    RUN_TEST(test_uint512_addition_with_overflow_flag_2_3);
+    RUN_TEST(test_uint512_addition_with_overflow_flag_sum_0);
+    RUN_TEST(test_uint512_addition_with_overflow_flag_all_bits_set_plus_1);
+    RUN_TEST(test_uint512_addition_with_overflow_flag_all_bits_set_plus_all_bits_set);
+    RUN_TEST(test_uint512_addition_with_overflow_flag_most_significant_bit_set_plus_most_significant_bit_set);
+    RUN_TEST(test_uint512_addition_with_overflow_flag_without_overflow);
+    RUN_TEST(test_uint512_addition_with_overflow_flag_with_overflow);
 
     return UNITY_END();
 }
