@@ -21,6 +21,7 @@
 #include "tests/montgomery/montgomery_multiplication.c"
 #include "tests/montgomery/to_montgomery.c"
 #include "tests/montgomery/from_montgomery.c"
+#include "tests/montgomery/montgomery_inverse.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -276,6 +277,13 @@ int main(void)
     RUN_TEST(test_from_montgomery_final_n_minus_1);
     RUN_TEST(test_from_montgomery_final_r_mod_n);
     RUN_TEST(test_from_montgomery_final_random_number);
+
+    RUN_TEST(test_montgomery_inverse_n_minus_1);
+    RUN_TEST(test_montgomery_inverse_n_minus_2);
+    RUN_TEST(test_montgomery_inverse_random_number_1);
+    RUN_TEST(test_montgomery_inverse_random_number_2);
+    RUN_TEST(test_montgomery_inverse_random_number_3);
+    RUN_TEST(test_montgomery_inverse_random_number_4);
 
     return UNITY_END();
 }
