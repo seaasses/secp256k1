@@ -4,7 +4,7 @@
 #include "modular_operations/modular_multiplication.h"
 #include "constants/secp256k1.h"
 
-void jacobian_to_affine(const JacobianPoint *point, Point *result_point)
+inline void jacobian_to_affine(const JacobianPoint *point, Point *result_point)
 {
     result_point->x = (Uint256)SECP256K1_P_MINUS_2;
     modular_exponentiation(&point->z, &result_point->x, &result_point->y);        // result_point.x = p-2, result.y = z^(-1),

@@ -1,6 +1,6 @@
 #include "secp256k1/affine_to_jacobian.h"
 
-void affine_to_jacobian(const Point *point, JacobianPoint *result_point)
+inline void affine_to_jacobian(const Point *point, JacobianPoint *result_point)
 {
     // (x, z) -> (x, y, 1)
     result_point->x = point->x;
