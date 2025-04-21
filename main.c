@@ -16,6 +16,7 @@
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_point_addition_jacobian_plus_affine.c"
 #include "tests/uint512/addition_with_overflow_flag.c"
+#include "tests/montgomery/montgomery_reduction.c"
 #include "tests/montgomery/montgomery_multiplication.c"
 
 #include <stdio.h>
@@ -234,6 +235,14 @@ int main(void)
 
     // MONTGOMERY
 
+    // montgomery reduction
+
+    RUN_TEST(test_montgomery_reduction_final_n_minus_1);
+    RUN_TEST(test_montgomery_reduction_before_mod_n_final_n_minus_1);
+    RUN_TEST(test_montgomery_reduction_final_n_minus_1);
+    RUN_TEST(test_montgomery_reduction_1_in_montgomery);
+
+    // montgomery multiplication
     RUN_TEST(test_montgomery_multiplication_random_numbers_0);
     RUN_TEST(test_montgomery_multiplication_random_numbers_1);
     RUN_TEST(test_montgomery_multiplication_random_numbers_2);
