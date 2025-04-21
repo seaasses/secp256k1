@@ -3,6 +3,6 @@
 
 #include "structs/uint256.h"
 
-void from_montgomery(Uint256 *x_montgomery, Uint256 *x);
+void from_montgomery(const Uint256 *x_montgomery, Uint256 *x);
 
 #endif

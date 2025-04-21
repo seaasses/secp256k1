@@ -3,7 +3,7 @@
 #include "montgomery/montgomery_reduction.h"
 #include "structs/uint512.h"
 
-inline void from_montgomery(Uint256 *x_montgomery, Uint256 *x)
+inline void from_montgomery(const Uint256 *x_montgomery, Uint256 *x)
 {
     // inplace safe
 

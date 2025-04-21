@@ -2,7 +2,7 @@
 #include "uint256/multiplication.h"
 #include "montgomery/montgomery_reduction.h"
 
-inline void montgomery_multiplication(Uint256 *a_m, Uint256 *b_m, Uint256 *result_m)
+inline void montgomery_multiplication(const Uint256 *a_m, const Uint256 *b_m, Uint256 *result_m)
 {
     // inplace safe
 

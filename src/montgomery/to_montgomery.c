@@ -2,7 +2,7 @@
 #include "constants/montgomery.h"
 #include "montgomery/montgomery_multiplication.h"
 
-inline void to_montgomery(Uint256 *x, Uint256 *x_montgomery)
+inline void to_montgomery(const Uint256 *x, Uint256 *x_montgomery)
 {
     // inplace safe
 

@@ -5,7 +5,7 @@
 #include "uint256/subtraction.h"
 #include "uint512/addition_with_overflow_flag.h"
 
-inline void montgomery_reduction(Uint512 *t, Uint256 *result)
+inline void montgomery_reduction(const Uint512 *t, Uint256 *result)
 {
     // inplace safe
     // basically apply x * MONTGOMERY_R^(-1) mod MONTGOMERY_N
