@@ -16,6 +16,7 @@
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_point_addition_jacobian_plus_affine.c"
 #include "tests/uint512/addition_with_overflow_flag.c"
+#include "tests/montgomery/montgomery_multiplication.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -230,6 +231,15 @@ int main(void)
     RUN_TEST(test_uint512_addition_with_overflow_flag_most_significant_bit_set_plus_most_significant_bit_set);
     RUN_TEST(test_uint512_addition_with_overflow_flag_without_overflow);
     RUN_TEST(test_uint512_addition_with_overflow_flag_with_overflow);
+
+    // MONTGOMERY
+
+    RUN_TEST(test_montgomery_multiplication_random_numbers_0);
+    RUN_TEST(test_montgomery_multiplication_random_numbers_1);
+    RUN_TEST(test_montgomery_multiplication_random_numbers_2);
+    RUN_TEST(test_montgomery_multiplication_random_numbers_3);
+    RUN_TEST(test_montgomery_multiplication_random_numbers_to_subtract_zero);
+    RUN_TEST(test_montgomery_multiplication_random_numbers_5_to_subtract_not_zero);
 
     return UNITY_END();
 }
