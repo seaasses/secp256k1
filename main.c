@@ -18,6 +18,7 @@
 #include "tests/uint512/addition_with_overflow_flag.c"
 #include "tests/montgomery/montgomery_reduction.c"
 #include "tests/montgomery/montgomery_multiplication.c"
+#include "tests/montgomery/to_montgomery.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -249,6 +250,14 @@ int main(void)
     RUN_TEST(test_montgomery_multiplication_random_numbers_3);
     RUN_TEST(test_montgomery_multiplication_random_numbers_to_subtract_zero);
     RUN_TEST(test_montgomery_multiplication_random_numbers_5_to_subtract_not_zero);
+
+    // to montgomery
+
+    RUN_TEST(test_to_montgomery_0);
+    RUN_TEST(test_to_montgomery_1);
+    RUN_TEST(test_to_montgomery_n_minus_1);
+    RUN_TEST(test_to_montgomery_r_mod_n);
+    RUN_TEST(test_to_montgomery_random_number);
 
     return UNITY_END();
 }

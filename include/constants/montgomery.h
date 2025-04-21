@@ -9,9 +9,11 @@
 #define MONTGOMERY_N_2 SECP256K1_P_2
 #define MONTGOMERY_N_3 SECP256K1_P_3
 
-
 #define MONTGOMERY_N_PRIME                                                 \
     {.limbs = {0xc9bd190515538399, 0x9c46c2c295f2b761, 0xbcb223fedc24a059, \
                0xd838091dd2253531}}
 
+#define MONTGOMERY_R_SQUARED                                               \
+    {.limbs = {0x0000000000000000, 0x0000000000000000, 0x0000000000000001, \
+               0x000007a2000e90a1}}
 #endif
