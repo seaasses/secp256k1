@@ -6,7 +6,7 @@ TARGET = a.out
 all: $(TARGET)
 
 $(TARGET): main.c $(SRC)
-	$(CC) -O0 $(CFLAGS) $^ -o $@
+	$(CC) -O3 $(CFLAGS) $^ -o $@
 
 compile-test: $(TARGET)
 $(TARGET): main.c $(SRC)
