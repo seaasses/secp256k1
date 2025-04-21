@@ -15,6 +15,7 @@
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/jacobian_montgomery_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
+#include "tests/secp256k1/jacobian_montgomery_to_affine.c"
 #include "tests/secp256k1/jacobian_point_addition_jacobian_plus_affine.c"
 #include "tests/uint512/addition_with_overflow_flag.c"
 #include "tests/montgomery/montgomery_reduction.c"
@@ -192,6 +193,17 @@ int main(void)
     RUN_TEST(test_jacobian_to_affine_random_point_2);
     RUN_TEST(test_jacobian_to_affine_random_point_3);
     RUN_TEST(test_jacobian_to_affine_random_point_4);
+
+    // jacobian montgomery to affine
+    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_0);
+    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_1);
+    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_2);
+    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_3);
+    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_4);
+
+
+
+
 
     // jacobian double point
     RUN_TEST(test_jacobian_double_point_z_is_1);
