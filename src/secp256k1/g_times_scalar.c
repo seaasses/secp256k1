@@ -279,11 +279,9 @@ inline void g_times_scalar(const Uint256 *scalar, Point *result_point)
     unsigned long long mask_sum_g_times_window = 0;        // window is not zero and this is not the first non-zero window
     unsigned long long mask_do_not_sum_g_times_window = 0; // window is zero and is not the first non-zero window
 
-#pragma unroll
     for (unsigned char limb_index = 0; limb_index < 4; ++limb_index)
     {
         limb = scalar->limbs[limb_index];
-#pragma unroll
         for (unsigned char i = 0; i < 8; ++i)
         {
             jacobian_montgomery_double_point(&jacobian_result_point, &tmp_point);
