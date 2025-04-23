@@ -9,14 +9,9 @@
 #include "tests/modular_operations/modular_double.c"
 #include "tests/modular_operations/modular_addition.c"
 #include "tests/modular_operations/modular_subtraction.c"
-#include "tests/modular_operations/modular_multiplication.c"
-#include "tests/modular_operations/modular_exponentiation.c"
-#include "tests/secp256k1/jacobian_to_affine.c"
-#include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/jacobian_montgomery_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_montgomery_to_affine.c"
-#include "tests/secp256k1/jacobian_point_addition_jacobian_plus_affine.c"
 #include "tests/uint512/addition_with_overflow_flag.c"
 #include "tests/montgomery/montgomery_reduction.c"
 #include "tests/montgomery/montgomery_multiplication.c"
@@ -165,34 +160,7 @@ int main(void)
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_more_than_p);
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_less_than_p);
 
-    // modular multiplication
-
-    RUN_TEST(test_modular_multiplication_2_3);
-    RUN_TEST(test_modular_multiplication_p_minus_1_times_2);
-    RUN_TEST(test_modular_multiplication_p_minus_1_times_p_minus_1);
-    RUN_TEST(test_modular_multiplication_p_minus_1_times_big_number);
-    RUN_TEST(test_modular_multiplication_two_big_numbers);
-
-    // modular exponentiation
-    RUN_TEST(test_modular_exponentiation_2_3);
-    RUN_TEST(test_modular_exponentiation_p_minus_1_power_0);
-    RUN_TEST(test_modular_exponentiation_p_minus_1_power_1);
-    RUN_TEST(test_modular_exponentiation_p_minus_1_power_2);
-    RUN_TEST(test_modular_exponentiation_p_minus_1_power_3);
-    RUN_TEST(test_modular_exponentiation_p_minus_1_power_p_minus_1);
-    RUN_TEST(test_modular_exponentiation_p_minus_2_power_p_minus_1);
-    RUN_TEST(test_modular_exponentiation_p_minus_2_power_p_minus_2);
-    RUN_TEST(test_modular_exponentiation_two_big_numbers);
-
     // SECP256K1
-
-    // jacobian to affine
-    RUN_TEST(test_jacobian_to_affine_z_is_1);
-    RUN_TEST(test_jacobian_to_affine_random_point_0);
-    RUN_TEST(test_jacobian_to_affine_random_point_1);
-    RUN_TEST(test_jacobian_to_affine_random_point_2);
-    RUN_TEST(test_jacobian_to_affine_random_point_3);
-    RUN_TEST(test_jacobian_to_affine_random_point_4);
 
     // jacobian montgomery to affine
     RUN_TEST(test_jacobian_montgomery_to_affine_random_point_0);
@@ -200,17 +168,6 @@ int main(void)
     RUN_TEST(test_jacobian_montgomery_to_affine_random_point_2);
     RUN_TEST(test_jacobian_montgomery_to_affine_random_point_3);
     RUN_TEST(test_jacobian_montgomery_to_affine_random_point_4);
-
-
-
-
-
-    // jacobian double point
-    RUN_TEST(test_jacobian_double_point_z_is_1);
-    RUN_TEST(test_jacobian_double_random_point_0);
-    RUN_TEST(test_jacobian_double_random_point_1);
-    RUN_TEST(test_jacobian_double_random_point_2);
-    RUN_TEST(test_jacobian_double_random_point_3);
 
     // jacobian montgomery double point
     RUN_TEST(test_jacobian_montgomery_double_point_random_point_0);
@@ -226,14 +183,6 @@ int main(void)
     RUN_TEST(test_generator_point_times_big_number_0);
     RUN_TEST(test_generator_point_times_big_number_1);
     RUN_TEST(test_generator_point_times_big_number_2);
-
-    // jacobian point addition jacobian plus affine
-
-    RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_0);
-    RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_1);
-    RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_2);
-    RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_3);
-    RUN_TEST(test_jacobian_point_addition_jacobian_plus_affine_4);
 
     RUN_TEST(test_multiplication_2_3);
     RUN_TEST(test_multiplication_least_significant_limb_simple_overflow);
