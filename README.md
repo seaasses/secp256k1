@@ -1,10 +1,10 @@
 # SECP256K1 Implementation Project
 
-This repository contains a C implementation of the SECP256K1 elliptic curve operations. It serves as a development and testing ground before porting the code to OpenCL for the [Address Artisan](https://github.com/seaasses/address-artisan) project.
+This repository contains a C implementation of the SECP256K1 elliptic curve operations. It serves as a development and testing ground before porting the code to OpenCL for the [Address Artisan](https://github.com/seaasses/address-artisan) project. The implementation is strictly branchless - using constant-time arithmetic without conditional statements to prevent warp divergence in GPU execution.
 
 ## Purpose
 
-The main goal is to build and test elliptic curve operations in a more manageable environment (C) before moving to OpenCL. Testing and development in OpenCL directly would be counterproductive due to its more complex debugging and testing environment.
+The main goal is to build and test elliptic curve operations in a more manageable environment (C) before moving to OpenCL. Testing and development in OpenCL directly would be counterproductive due to its more complex debugging and testing environment. 
 
 ## Testing Framework
 
@@ -18,16 +18,32 @@ make && ./a.out
 
 ## Implementation Details
 
-### Uint256 Structure
-- Uses 4 limbs of 64 bits each
-- Limb 0 is the most significant
+### Integer Structures
+- **Uint256**
+  - Uses 4 limbs of 64 bits each
+  - Limb 0 is the most significant
+- **Uint512**
+  - Uses 8 limbs of 64 bits each
+  - Used for intermediate calculations in Montgomery arithmetic
+  - Essential for efficient modular multiplication operations
 
-### Point Structure
-- Implemented as a C struct
-- Contains two Uint256 fields:
-  - x coordinate
-  - y coordinate
-- Used for representing points on the SECP256k1 curve
+### Number Representation and Interfaces
+- All internal operations use Montgomery form for efficient arithmetic
+- The G*k operation:
+  - External interface: accepts standard integer representation and returns affine coordinates
+  - Internal implementation: uses Montgomery form and Jacobian coordinates
+  - Montgomery to standard conversion happens only at the final result
+- All other internal operations remain in Montgomery form for efficiency
+
+### Point Structures
+- Two distinct structures implemented:
+  1. **Point (Affine)**
+     - Contains two Uint256 fields (x, y)
+     - Used for pre-computed points in sliding window
+     - Stored in Montgomery form
+  2. **JacobianPoint**
+     - Contains three Uint256 fields (x, y, z)
+     - Used for intermediate calculations
 
 ### Basic Operations
 1. **Uint256 Arithmetic**
@@ -47,31 +63,22 @@ make && ./a.out
    - Basic modulus operation
 
 ### SECP256k1 Point Operations
-- Point doubling
-- Point addition (A + B, where A ≠ B, A ≠ -B, neither point is infinity)
-- Scalar multiplication (k * G, where G is the generator point)
+- Point doubling 
+- Point addition using Jacobian coordinates 
+- Scalar multiplication with optimized Jacobian arithmetic
+- Conversion between affine and Jacobian coordinates
+
+### Notable Optimizations
+- Scalar multiplication (k*G) optimizations:
+  - 8-bit sliding window implementation
+  - Pre-computed points stored in affine coordinates (Montgomery form)
+  - Mixed addition (affine + jacobian) for better performance
+- Modular inversion using Fermat's Little Theorem with an optimized [addition chain](https://github.com/bitcoin-core/secp256k1/commit/07810d9abb8377e8f0056032bca51f8ca54ed18f) developed by Peter Dettman and Tim Ruffing
+- Montgomery arithmetic throughout the internal operations
+- Jacobian coordinates for intermediate point operations
 
 ## Future Optimizations
 
 ### Performance Improvements
-1. **Scalar Multiplication Optimization**
-   - Implementation of Jacobian coordinates
-   - Reduced modular inversions
-   - Sliding window technique for generator point
-   - Pre-computation of points (1G through 15G using 4-bit window)
-
-2. **Modular Arithmetic Optimization**
-   - Montgomery representation for more efficient modular multiplication operations
-   - Implementation will require:
-     - uint512 for intermediate calculations in Montgomery arithmetic
-     - Efficient 256-bit × 256-bit multiplication
-     - Additional 512-bit arithmetic support
-
-### Implementation Notes
-- Focus is on optimizing the underlying multiplication operations to make Fermat's method faster
-- Multiplication implementation strategy when needed:
-  1. Standard 256-bit × 256-bit multiplication implementation
-  2. Future optimization using Karatsuba algorithm for potential performance gains
-
-
-
+1. **Modular Arithmetic Optimization**
+   - Karatsuba algorithm implementation for large number multiplication
