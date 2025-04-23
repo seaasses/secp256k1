@@ -73,7 +73,7 @@ make && ./a.out
   - 8-bit sliding window implementation
   - Pre-computed points stored in affine coordinates (Montgomery form)
   - Mixed addition (affine + jacobian) for better performance
-- Modular inversion using Fermat's Little Theorem with an optimized [addition chain](https://github.com/bitcoin-core/secp256k1/commit/07810d9abb8377e8f0056032bca51f8ca54ed18f) developed by Peter Dettman and Tim Ruffing
+- Modular inversion using Fermat's Little Theorem with an optimized [addition chain](https://github.com/bitcoin-core/secp256k1/commit/f8ccd9befdb22824ef9a845a90e3db57c1307c11) developed by Peter Dettman and Tim Ruffing
 - Montgomery arithmetic throughout the internal operations
 - Jacobian coordinates for intermediate point operations
 
