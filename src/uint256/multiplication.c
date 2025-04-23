@@ -31,7 +31,7 @@ inline void add_component_to_limb(unsigned long long a_limb, unsigned long long 
 inline void uint256_multiplication(const Uint256 *a, const Uint256 *b, Uint512 *result)
 {
     unsigned long long carry_high = 0;
-    unsigned long long carry_low, result_tmp, carry_tmp_low, carry_tmp_high;
+    unsigned long long carry_low;
 
     // limb 7
     uint64_multiplication(a->limbs[3], b->limbs[3], &carry_low, &result->limbs[7]); // first limb set (OK)
