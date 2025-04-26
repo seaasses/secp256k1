@@ -1,4 +1,4 @@
-#include "uint256/subtraction.h"
+#include "big_uint/uint256_subtraction.h"
 
 inline void uint256_subtraction(const Uint256 *a, const Uint256 *b, Uint256 *result)
 {

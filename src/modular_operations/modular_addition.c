@@ -1,6 +1,6 @@
 #include "modular_operations/modular_addition.h"
-#include "uint256/subtraction.h"
-#include "uint256/addition_with_overflow_flag.h"
+#include "big_uint/uint256_subtraction.h"
+#include "big_uint/uint256_addition_with_overflow_flag.h"
 #include "constants/secp256k1.h"
 
 inline void modular_addition(const Uint256 *a, const Uint256 *b, Uint256 *result)

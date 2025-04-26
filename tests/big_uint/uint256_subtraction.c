@@ -1,6 +1,6 @@
 #include "structs/uint256.h"
 #include "unity/unity.h"
-#include "uint256/subtraction.h"
+#include "big_uint/uint256_subtraction.h"
 
 void test_subtraction_1_0(void)
 {

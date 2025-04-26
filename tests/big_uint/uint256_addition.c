@@ -1,6 +1,6 @@
 #include "structs/uint256.h"
 #include "unity/unity.h"
-#include "uint256/addition.h"
+#include "big_uint/uint256_addition.h"
 
 void test_addition_2_3(void)
 {

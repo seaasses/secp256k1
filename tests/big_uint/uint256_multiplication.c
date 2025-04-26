@@ -1,5 +1,5 @@
 #include "unity/unity.h"
-#include "uint256/multiplication.h"
+#include "big_uint/uint256_multiplication.h"
 
 void test_multiplication_big_number_times_0(void)
 {

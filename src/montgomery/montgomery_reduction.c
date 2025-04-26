@@ -1,9 +1,8 @@
 #include "montgomery/montgomery_reduction.h"
-
 #include "constants/montgomery.h"
-#include "uint256/multiplication.h"
-#include "uint256/subtraction.h"
-#include "uint512/addition_with_overflow_flag.h"
+#include "big_uint/uint256_multiplication.h"
+#include "big_uint/uint256_subtraction.h"
+#include "big_uint/uint512_addition_with_overflow_flag.h"
 
 inline void montgomery_reduction(const Uint512 *t, Uint256 *result)
 {

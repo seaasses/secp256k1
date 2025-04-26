@@ -1,6 +1,6 @@
 #include "structs/uint512.h"
 #include "unity/unity.h"
-#include "uint512/addition_with_overflow_flag.h"
+#include "big_uint/uint512_addition_with_overflow_flag.h"
 
 void test_uint512_addition_with_overflow_flag_2_3(void)
 {

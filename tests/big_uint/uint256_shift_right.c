@@ -1,6 +1,6 @@
 #include "structs/uint256.h"
 #include "unity/unity.h"
-#include "uint256/shift_right.h"
+#include "big_uint/uint256_shift_right.h"
 
 void test_shift_right_0(void)
 {

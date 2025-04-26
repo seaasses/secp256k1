@@ -1,4 +1,4 @@
-#include "uint256/multiplication.h"
+#include "big_uint/uint256_multiplication.h"
 
 inline void uint64_multiplication(const unsigned long long a, const unsigned long long b, unsigned long long *high, unsigned long long *low)
 {

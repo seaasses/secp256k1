@@ -1,4 +1,4 @@
-#include "uint256/shift_right.h"
+#include "big_uint/uint256_shift_right.h"
 
 inline void uint256_shift_right(const Uint256 *x, Uint256 *result)
 {
