@@ -1,7 +1,7 @@
 #ifndef POINT
 #define POINT
 
-#include "structs/uint256.h"
+#include "structs/big_uint.h"
 
 typedef struct
 {

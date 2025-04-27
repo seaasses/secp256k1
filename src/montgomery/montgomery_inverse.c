@@ -1,7 +1,7 @@
 #include "montgomery/montgomery_inverse.h"
 #include "constants/montgomery.h"
 #include "montgomery/montgomery_multiplication.h"
-#include "structs/uint256.h"
+#include "structs/big_uint.h"
 #include <stdio.h>
 
 void montgomery_inverse(const Uint256 *a_mont, Uint256 *a_inv_mont)

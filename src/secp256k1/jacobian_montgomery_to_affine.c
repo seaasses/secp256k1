@@ -1,5 +1,5 @@
 #include "secp256k1/jacobian_montgomery_to_affine.h"
-#include "structs/uint256.h"
+#include "structs/big_uint.h"
 #include "montgomery/montgomery_multiplication.h"
 #include "montgomery/montgomery_inverse.h"
 #include "montgomery/from_montgomery.h"

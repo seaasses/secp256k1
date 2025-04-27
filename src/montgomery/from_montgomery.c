@@ -1,7 +1,7 @@
 #include "montgomery/from_montgomery.h"
 #include "constants/montgomery.h"
 #include "montgomery/montgomery_reduction.h"
-#include "structs/uint512.h"
+#include "structs/big_uint.h"
 
 inline void from_montgomery(const Uint256 *x_montgomery, Uint256 *x)
 {

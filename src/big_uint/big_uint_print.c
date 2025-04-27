@@ -1,16 +1,21 @@
 #include <stdio.h>
 #include "big_uint/big_uint_print.h"
 
-void uint256_print(Uint256 x)
+void big_uint_print(unsigned long long *limbs, unsigned int quant)
 {
-    for (int i = 0; i < 4; ++i)
+    for (unsigned int i = 0; i < quant; ++i)
     {
-        unsigned long long value = x.limbs[i];
-        for (int i = 7; i >= 0; i--)
-        {
-            unsigned char byte = (value >> (i * 8));
-            printf("0x%02X ", byte);
-        }
+        printf("%d: 0x%016llX\n", i, limbs[i]);
     }
     printf("\n");
+}
+
+void uint256_print(Uint256 *x)
+{
+    big_uint_print((unsigned long long*)x, 4);
+}
+
+void uint512_print(Uint512 *x)
+{
+    big_uint_print((unsigned long long*)x, 8);
 }

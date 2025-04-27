@@ -1,4 +1,4 @@
-#include "structs/uint256.h"
+#include "structs/big_uint.h"
 #include "unity/unity.h"
 #include <stdio.h>
 

@@ -1,8 +1,8 @@
 #ifndef UNITY_EXTENSION
 #define UNITY_EXTENSION
 
-#include "structs/uint256.h"
-#include "structs/uint512.h"
+#include "structs/big_uint.h"
+#include "structs/big_uint.h"
 #include "structs/point.h"
 
 #define ASSERT_UINT256_EQUAL(expected, actual) assert_uint256_equal((expected), (actual))

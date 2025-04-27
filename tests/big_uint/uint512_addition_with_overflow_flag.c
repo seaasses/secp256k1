@@ -1,4 +1,4 @@
-#include "structs/uint512.h"
+#include "structs/big_uint.h"
 #include "unity/unity.h"
 #include "big_uint/uint512_addition_with_overflow_flag.h"
 
