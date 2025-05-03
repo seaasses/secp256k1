@@ -20,6 +20,7 @@
 #include "tests/montgomery/montgomery_inverse.c"
 #include "tests/modular_operations/modular_multiplication.c"
 #include "tests/big_uint/uint256_uint64_multiplication.c"
+#include "tests/big_uint/uint320_uint256_addition.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -253,6 +254,7 @@ int main(void)
     RUN_TEST(test_modular_multiplication_p_minus_1_times_p_minus_1);
     RUN_TEST(test_modular_multiplication_two_big_numbers);
 
+    // uint256 times uint64
     RUN_TEST(test_uint256_uint64_2_times_3);
     RUN_TEST(test_uint256_uint64_0x8000000000000000_times_two);
     RUN_TEST(test_uint256_uint64_max_64_bits_times_two);
@@ -262,6 +264,23 @@ int main(void)
     RUN_TEST(test_uint256_uint64_max_256_bits_times_max_64_bits);
     RUN_TEST(test_uint256_uint64_big_256_bits_times_big_64_bits);
     RUN_TEST(test_uint256_uint64_big_256_bits_times_0);
+
+    // uint320 plus uint256
+    RUN_TEST(test_uint320_uint256_addition_3_plus_4);
+    RUN_TEST(test_uint320_uint256_addition_max_320_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_max_64_bits_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_max_128_bits_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_max_192_bits_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_big_320_bits_plus_big_256_bits);
+    RUN_TEST(test_uint320_uint256_addition_big_320_0_1_pattern_plus_0_1_pattern);
+    RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_0_1_pattern);
+    RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_1_0_pattern);
+
+
+
+
+
+
 
     return UNITY_END();
 }
