@@ -18,6 +18,8 @@
 #include "tests/montgomery/to_montgomery.c"
 #include "tests/montgomery/from_montgomery.c"
 #include "tests/montgomery/montgomery_inverse.c"
+#include "tests/modular_operations/modular_multiplication.c"
+#include "tests/big_uint/uint256_uint64_multiplication.c"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -176,7 +178,6 @@ int main(void)
     RUN_TEST(test_jacobian_montgomery_double_point_random_point_3);
     RUN_TEST(test_jacobian_montgomery_double_point_random_point_4);
 
-
     // g times scalar
 
     RUN_TEST(test_generator_point_times_1);
@@ -232,7 +233,7 @@ int main(void)
     RUN_TEST(test_to_montgomery_random_number);
 
     // from montgomery
-    
+
     RUN_TEST(test_from_montgomery_final_0);
     RUN_TEST(test_from_montgomery_final_1);
     RUN_TEST(test_from_montgomery_final_n_minus_1);
@@ -245,6 +246,22 @@ int main(void)
     RUN_TEST(test_montgomery_inverse_random_number_2);
     RUN_TEST(test_montgomery_inverse_random_number_3);
     RUN_TEST(test_montgomery_inverse_random_number_4);
+
+    RUN_TEST(test_modular_multiplication_2_3);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_2);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_big_number);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_p_minus_1);
+    RUN_TEST(test_modular_multiplication_two_big_numbers);
+
+    RUN_TEST(test_uint256_uint64_2_times_3);
+    RUN_TEST(test_uint256_uint64_0x8000000000000000_times_two);
+    RUN_TEST(test_uint256_uint64_max_64_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_128_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_192_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_256_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_256_bits_times_max_64_bits);
+    RUN_TEST(test_uint256_uint64_big_256_bits_times_big_64_bits);
+    RUN_TEST(test_uint256_uint64_big_256_bits_times_0);
 
     return UNITY_END();
 }
