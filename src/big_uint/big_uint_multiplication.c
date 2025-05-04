@@ -1,4 +1,4 @@
-#include "big_uint/uint256_multiplication.h"
+#include "big_uint/big_uint_multiplication.h"
 #include "big_uint/uint64_multiplication.h"
 #include "big_uint/big_uint_multiplication_helper.h"
 

@@ -1,5 +1,5 @@
-#ifndef UINT256_MULTIPLICATION
-#define UINT256_MULTIPLICATION
+#ifndef BIG_UINT_MULTIPLICATION
+#define BIG_UINT_MULTIPLICATION
 
 #include "structs/big_uint.h"
 

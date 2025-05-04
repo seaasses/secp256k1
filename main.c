@@ -48,7 +48,7 @@ void benchmark(void)
 int main(void)
 {
 
-    benchmark();
+    // benchmark();
     // 12.691 on 100k
     UNITY_BEGIN();
 
