@@ -1,5 +1,5 @@
 #include "structs/point.h"
-#include "structs/uint256.h"
+#include "structs/big_uint.h"
 #include "unity/unity.h"
 #include "secp256k1/g_times_scalar.h"
 #include "constants/secp256k1.h"

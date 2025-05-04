@@ -1,8 +1,0 @@
-#ifndef JACOBIAN_POINT_ADDITION_JACOBIAN_MONTGOMERY_PLUS_AFFINE_MONTGOMERY
-#define JACOBIAN_POINT_ADDITION_JACOBIAN_MONTGOMERY_PLUS_AFFINE_MONTGOMERY
-
-#include "structs/point.h"
-
-void jacobian_point_addition_jacobian_montgomery_plus_affine_montgomery(const JacobianPoint *point_a_mont, const Point *point_b_mont, JacobianPoint *result_point);
-
-#endif

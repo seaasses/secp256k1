@@ -1,7 +1,7 @@
 #include "modular_operations/modular_subtraction.h"
 #include "constants/secp256k1.h"
-#include "uint256/subtraction_with_underflow_flag.h"
-#include "uint256/addition.h"
+#include "big_uint/uint256_subtraction_with_underflow_flag.h"
+#include "big_uint/uint256_addition.h"
 
 inline void modular_subtraction(const Uint256 *a, const Uint256 *b, Uint256 *result)
 {

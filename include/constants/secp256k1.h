@@ -1,7 +1,7 @@
 #ifndef SECP256K1_CONSTANTS
 #define SECP256K1_CONSTANTS
 
-#include "structs/uint256.h"
+#include "structs/big_uint.h"
 
 #define SECP256K1_P                                                        \
     {.limbs = {0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, \
@@ -14,6 +14,8 @@
 #define SECP256K1_P_MINUS_2                                                \
     {.limbs = {0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, 0xFFFFFFFFFFFFFFFF, \
                0xFFFFFFFEFFFFFC2D}}
+
+#define P_FOLDING_CONSTANT 0x00000001000003d1ULL
 
 #define SECP256K1_P_0 0xFFFFFFFFFFFFFFFF
 #define SECP256K1_P_1 0xFFFFFFFFFFFFFFFF
