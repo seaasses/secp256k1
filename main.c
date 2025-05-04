@@ -14,6 +14,7 @@
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_montgomery_to_affine.c"
+#include "tests/secp256k1/jacobian_to_affine.c"
 #include "tests/secp256k1/jacobian_point_affine_point_addition.c"
 #include "tests/big_uint/uint512_addition_with_overflow_flag.c"
 #include "tests/montgomery/montgomery_reduction.c"
@@ -175,6 +176,14 @@ int main(void)
     RUN_TEST(test_modular_inverse_max_192_bits);
 
     // SECP256K1
+
+    // jacobian to affine
+    RUN_TEST(test_jacobian_to_affine_z_1);
+    RUN_TEST(test_jacobian_to_affine_0);
+    RUN_TEST(test_jacobian_to_affine_1);
+    RUN_TEST(test_jacobian_to_affine_2);
+    RUN_TEST(test_jacobian_to_affine_3);
+    RUN_TEST(test_jacobian_to_affine_4);
 
     // jacobian montgomery to affine
     RUN_TEST(test_jacobian_montgomery_to_affine_random_point_0);
