@@ -655,5 +655,5 @@ inline void g_times_scalar_antigo(const Uint256 *scalar, Point *result_point)
 inline void g_times_scalar(const Uint256 *scalar, Point *result_point)
 {
     g_times_scalar_antigo(scalar, result_point);
-    g_times_scalar_novo(scalar, result_point);
+    // g_times_scalar_novo(scalar, result_point);
 }

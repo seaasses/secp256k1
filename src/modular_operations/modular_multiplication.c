@@ -33,7 +33,7 @@ inline void modular_multiplication(const Uint256 *a, const Uint256 *b, Uint256 *
 
     // SECOND FOLD
     // TODO: add 256 bits + 128 bits addition
-    uint64_multiplication(P_FOLDING_CONSTANT, tmp_2.limbs[0], (Uint128 *)&tmp_0.limbs[2]);
+    uint64_multiplication(P_FOLDING_CONSTANT, tmp_2.limbs[0], tmp_0.limbs[2], tmp_0.limbs[3]);
     tmp_0.limbs[0] = 0; // and i will not need to do this
     tmp_0.limbs[1] = 0; // and this
 
