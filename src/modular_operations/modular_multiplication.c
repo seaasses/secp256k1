@@ -12,7 +12,7 @@
 #include "structs/big_uint.h"
 #include <stdio.h>
 
-void modular_multiplication(const Uint256 *a, Uint256 *b, Uint256 *result)
+inline void modular_multiplication(const Uint256 *a, const Uint256 *b, Uint256 *result)
 {
     Uint512 tmp_0;
     Uint320 tmp_1;

@@ -8,6 +8,7 @@
 #include "tests/big_uint/uint256_multiplication.c"
 #include "tests/modular_operations/modular_double.c"
 #include "tests/modular_operations/modular_addition.c"
+#include "tests/modular_operations/modular_inverse.c"
 #include "tests/modular_operations/modular_subtraction.c"
 #include "tests/secp256k1/jacobian_montgomery_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
@@ -162,6 +163,14 @@ int main(void)
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_do_not_underflow);
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_more_than_p);
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_less_than_p);
+
+    // modular inverse
+    RUN_TEST(test_modular_inverse_1);
+    RUN_TEST(test_modular_inverse_p_minus_1);
+    RUN_TEST(test_modular_inverse_12345678910111213141516171819202122232425262728303132333435363738394041424344);
+    RUN_TEST(test_modular_inverse_max_64_bits);
+    RUN_TEST(test_modular_inverse_max_128_bits);
+    RUN_TEST(test_modular_inverse_max_192_bits);
 
     // SECP256K1
 
