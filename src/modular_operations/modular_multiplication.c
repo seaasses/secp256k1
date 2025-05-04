@@ -2,9 +2,9 @@
 #include "constants/secp256k1.h"
 #include "big_uint/big_uint_multiplication.h"
 #include "big_uint/uint256_subtraction.h"
-#include "big_uint/uint256_uint64_multiplication.h"
+#include "big_uint/big_uint_multiplication.h"
 #include "big_uint/big_uint_print.h"
-#include "big_uint/uint64_multiplication.h"
+#include "big_uint/uint64_operations.h"
 #include "big_uint/big_uint_addition.h"
 #include "structs/big_uint.h"
 
