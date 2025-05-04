@@ -9,22 +9,22 @@ void uint256_uint64_multiplication(Uint256 *a, unsigned long long b, Uint320 *re
     unsigned long long carry_high = 0;
     unsigned long long carry_low;
 
-    uint64_multiplication(a->limbs[3], b, carry_low, result->limbs[4]); // first limb set (OK)
+    UINT64_MULTIPLICATION(a->limbs[3], b, carry_low, result->limbs[4]); // first limb set (OK)
 
     result->limbs[3] = carry_low;
     carry_low = carry_high;
     carry_high = 0;
-    add_component_to_limb(a->limbs[2], b, carry_high, carry_low, result->limbs[3]);
+    ADD_COMPONENT_TO_LIMB(a->limbs[2], b, carry_high, carry_low, result->limbs[3]);
 
     result->limbs[2] = carry_low;
     carry_low = carry_high;
     carry_high = 0;
-    add_component_to_limb(a->limbs[1], b, carry_high, carry_low, result->limbs[2]);
+    ADD_COMPONENT_TO_LIMB(a->limbs[1], b, carry_high, carry_low, result->limbs[2]);
 
     result->limbs[1] = carry_low;
     carry_low = carry_high;
     carry_high = 0;
-    add_component_to_limb(a->limbs[0], b, carry_high, carry_low, result->limbs[1]);
+    ADD_COMPONENT_TO_LIMB(a->limbs[0], b, carry_high, carry_low, result->limbs[1]);
 
     result->limbs[0] = carry_low;
 }
