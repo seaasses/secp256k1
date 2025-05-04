@@ -276,11 +276,5 @@ int main(void)
     RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_0_1_pattern);
     RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_1_0_pattern);
 
-
-
-
-
-
-
     return UNITY_END();
 }
