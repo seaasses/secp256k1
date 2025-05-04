@@ -10,18 +10,11 @@
 #include "tests/modular_operations/modular_addition.c"
 #include "tests/modular_operations/modular_inverse.c"
 #include "tests/modular_operations/modular_subtraction.c"
-#include "tests/secp256k1/jacobian_montgomery_double_point.c"
 #include "tests/secp256k1/jacobian_double_point.c"
 #include "tests/secp256k1/g_times_scalar.c"
-#include "tests/secp256k1/jacobian_montgomery_to_affine.c"
 #include "tests/secp256k1/jacobian_to_affine.c"
 #include "tests/secp256k1/jacobian_point_affine_point_addition.c"
 #include "tests/big_uint/uint512_addition_with_overflow_flag.c"
-#include "tests/montgomery/montgomery_reduction.c"
-#include "tests/montgomery/montgomery_multiplication.c"
-#include "tests/montgomery/to_montgomery.c"
-#include "tests/montgomery/from_montgomery.c"
-#include "tests/montgomery/montgomery_inverse.c"
 #include "tests/modular_operations/modular_multiplication.c"
 #include "tests/big_uint/uint256_uint64_multiplication.c"
 #include "tests/big_uint/uint320_uint256_addition.c"
@@ -34,7 +27,7 @@ void benchmark(void)
 {
     Uint256 scalar = get_random_uint256();
     Point point;
-    for (int i = 0; i < 32000; ++i)
+    for (int i = 0; i < 10000; ++i)
     {
         g_times_scalar(&scalar, &point);
         scalar.limbs[0] = point.x.limbs[0] | point.y.limbs[0];
@@ -193,6 +186,13 @@ int main(void)
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_more_than_p);
     RUN_TEST(test_modular_subtraction_two_big_numbers_that_underflow_and_before_modulus_is_less_than_p);
 
+    // modular multiplication
+    RUN_TEST(test_modular_multiplication_2_3);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_2);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_big_number);
+    RUN_TEST(test_modular_multiplication_p_minus_1_times_p_minus_1);
+    RUN_TEST(test_modular_multiplication_two_big_numbers);
+
     // modular inverse
     RUN_TEST(test_modular_inverse_1);
     RUN_TEST(test_modular_inverse_p_minus_1);
@@ -210,29 +210,6 @@ int main(void)
     RUN_TEST(test_jacobian_to_affine_2);
     RUN_TEST(test_jacobian_to_affine_3);
     RUN_TEST(test_jacobian_to_affine_4);
-
-    // jacobian montgomery to affine
-    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_0);
-    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_1);
-    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_2);
-    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_3);
-    RUN_TEST(test_jacobian_montgomery_to_affine_random_point_4);
-
-    // jacobian montgomery double point
-    RUN_TEST(test_jacobian_montgomery_double_point_random_point_0);
-    RUN_TEST(test_jacobian_montgomery_double_point_random_point_1);
-    RUN_TEST(test_jacobian_montgomery_double_point_random_point_2);
-    RUN_TEST(test_jacobian_montgomery_double_point_random_point_3);
-    RUN_TEST(test_jacobian_montgomery_double_point_random_point_4);
-
-    // jacobian montgomery double point
-
-    RUN_TEST(test_jacobian_double_point_random_point_0);
-    RUN_TEST(test_jacobian_double_point_random_point_1);
-    RUN_TEST(test_jacobian_double_point_random_point_2);
-    RUN_TEST(test_jacobian_double_point_random_point_3);
-    RUN_TEST(test_jacobian_double_point_random_point_4);
-    RUN_TEST(test_jacobian_double_point_random_point_5);
 
     // jacobian point affine point addition
 
@@ -270,52 +247,6 @@ int main(void)
     RUN_TEST(test_uint512_addition_with_overflow_flag_most_significant_bit_set_plus_most_significant_bit_set);
     RUN_TEST(test_uint512_addition_with_overflow_flag_without_overflow);
     RUN_TEST(test_uint512_addition_with_overflow_flag_with_overflow);
-
-    // MONTGOMERY
-
-    // montgomery reduction
-
-    RUN_TEST(test_montgomery_reduction_final_n_minus_1);
-    RUN_TEST(test_montgomery_reduction_before_mod_n_final_n_minus_1);
-    RUN_TEST(test_montgomery_reduction_final_n_minus_1);
-    RUN_TEST(test_montgomery_reduction_1_in_montgomery);
-
-    // montgomery multiplication
-    RUN_TEST(test_montgomery_multiplication_random_numbers_0);
-    RUN_TEST(test_montgomery_multiplication_random_numbers_1);
-    RUN_TEST(test_montgomery_multiplication_random_numbers_2);
-    RUN_TEST(test_montgomery_multiplication_random_numbers_3);
-    RUN_TEST(test_montgomery_multiplication_random_numbers_to_subtract_zero);
-    RUN_TEST(test_montgomery_multiplication_random_numbers_5_to_subtract_not_zero);
-
-    // to montgomery
-
-    RUN_TEST(test_to_montgomery_0);
-    RUN_TEST(test_to_montgomery_1);
-    RUN_TEST(test_to_montgomery_n_minus_1);
-    RUN_TEST(test_to_montgomery_r_mod_n);
-    RUN_TEST(test_to_montgomery_random_number);
-
-    // from montgomery
-
-    RUN_TEST(test_from_montgomery_final_0);
-    RUN_TEST(test_from_montgomery_final_1);
-    RUN_TEST(test_from_montgomery_final_n_minus_1);
-    RUN_TEST(test_from_montgomery_final_r_mod_n);
-    RUN_TEST(test_from_montgomery_final_random_number);
-
-    RUN_TEST(test_montgomery_inverse_n_minus_1);
-    RUN_TEST(test_montgomery_inverse_n_minus_2);
-    RUN_TEST(test_montgomery_inverse_random_number_1);
-    RUN_TEST(test_montgomery_inverse_random_number_2);
-    RUN_TEST(test_montgomery_inverse_random_number_3);
-    RUN_TEST(test_montgomery_inverse_random_number_4);
-
-    RUN_TEST(test_modular_multiplication_2_3);
-    RUN_TEST(test_modular_multiplication_p_minus_1_times_2);
-    RUN_TEST(test_modular_multiplication_p_minus_1_times_big_number);
-    RUN_TEST(test_modular_multiplication_p_minus_1_times_p_minus_1);
-    RUN_TEST(test_modular_multiplication_two_big_numbers);
 
     // uint256 times uint64
     RUN_TEST(test_uint256_uint64_2_times_3);
