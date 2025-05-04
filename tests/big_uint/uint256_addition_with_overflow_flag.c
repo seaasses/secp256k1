@@ -1,6 +1,6 @@
 #include "structs/big_uint.h"
 #include "unity/unity.h"
-#include "big_uint/uint256_addition_with_overflow_flag.h"
+#include "big_uint/big_uint_addition.h"
 
 void test_addition_with_overflow_flag_2_3(void)
 {

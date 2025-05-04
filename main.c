@@ -14,7 +14,6 @@
 #include "tests/secp256k1/g_times_scalar.c"
 #include "tests/secp256k1/jacobian_to_affine.c"
 #include "tests/secp256k1/jacobian_point_affine_point_addition.c"
-#include "tests/big_uint/uint512_addition_with_overflow_flag.c"
 #include "tests/modular_operations/modular_multiplication.c"
 #include "tests/big_uint/uint256_uint64_multiplication.c"
 #include "tests/big_uint/uint320_uint256_addition.c"
@@ -27,7 +26,7 @@ void benchmark(void)
 {
     Uint256 scalar = get_random_uint256();
     Point point;
-    for (int i = 0; i < 10000; ++i)
+    for (int i = 0; i < 100000; ++i)
     {
         g_times_scalar(&scalar, &point);
         scalar.limbs[0] = point.x.limbs[0] | point.y.limbs[0];
@@ -50,6 +49,7 @@ int main(void)
 {
 
     benchmark();
+    // 12.691 on 100k
     UNITY_BEGIN();
 
     // UINT256
@@ -238,15 +238,6 @@ int main(void)
     RUN_TEST(test_multiplication_4_full_limbs);
 
     // UINT512
-
-    // uint512 addition with overflow flag
-    RUN_TEST(test_uint512_addition_with_overflow_flag_2_3);
-    RUN_TEST(test_uint512_addition_with_overflow_flag_sum_0);
-    RUN_TEST(test_uint512_addition_with_overflow_flag_all_bits_set_plus_1);
-    RUN_TEST(test_uint512_addition_with_overflow_flag_all_bits_set_plus_all_bits_set);
-    RUN_TEST(test_uint512_addition_with_overflow_flag_most_significant_bit_set_plus_most_significant_bit_set);
-    RUN_TEST(test_uint512_addition_with_overflow_flag_without_overflow);
-    RUN_TEST(test_uint512_addition_with_overflow_flag_with_overflow);
 
     // uint256 times uint64
     RUN_TEST(test_uint256_uint64_2_times_3);
