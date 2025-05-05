@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Iinclude -Wall -Wextra
-SRC = src/modular_operations/modular_inverse.c src/modular_operations/modular_multiplication.c src/secp256k1/jacobian_double_point.c src/secp256k1/jacobian_to_affine.c src/secp256k1/jacobian_point_affine_point_addition.c src/big_uint/get_random_uint256.c src/modular_operations/modular_double.c src/secp256k1/g_times_scalar.c src/modular_operations/modular_subtraction.c src/modular_operations/modular_addition.c src/modular_operations/modular_double.c src/big_uint/big_uint_subtraction.c src/big_uint/big_uint_multiplication.c src/big_uint/big_uint_addition.c src/big_uint/big_uint_shift.c src/big_uint/big_uint_print.c src/unity/unity.c src/unity/unity_extension.c
+SRC = src/modular_operations/modular_inverse.c src/modular_operations/modular_multiplication.c src/secp256k1/jacobian_double_point.c src/secp256k1/jacobian_to_affine.c src/secp256k1/jacobian_point_affine_point_addition.c src/big_uint/get_random_big_uint.c src/modular_operations/modular_double.c src/secp256k1/g_times_scalar.c src/modular_operations/modular_subtraction.c src/modular_operations/modular_addition.c src/modular_operations/modular_double.c src/big_uint/big_uint_subtraction.c src/big_uint/big_uint_multiplication.c src/big_uint/big_uint_addition.c src/big_uint/big_uint_shift.c src/big_uint/big_uint_print.c src/unity/unity.c src/unity/unity_extension.c
 TARGET = a.out 
 
 all: $(TARGET)

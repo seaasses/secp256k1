@@ -1,4 +1,4 @@
-#include "big_uint/get_random_uint256.h"
+#include "big_uint/get_random_big_uint.h"
 #include <stdlib.h>
 
 unsigned long long rand64()
