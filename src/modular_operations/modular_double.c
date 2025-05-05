@@ -1,5 +1,5 @@
 #include "modular_operations/modular_double.h"
-#include "big_uint/uint256_shift_left.h"
+#include "big_uint/big_uint_shift.h"
 #include "big_uint/uint256_subtraction.h"
 #include "constants/secp256k1.h"
 
