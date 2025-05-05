@@ -1,5 +1,5 @@
-#ifndef UINT256_SHIFT_LEFT
-#define UINT256_SHIFT_LEFT
+#ifndef BIG_UINT_SHIFT
+#define BIG_UINT_SHIFT
 
 #include "structs/big_uint.h"
 
