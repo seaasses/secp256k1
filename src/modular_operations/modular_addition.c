@@ -1,5 +1,5 @@
 #include "modular_operations/modular_addition.h"
-#include "big_uint/uint256_subtraction.h"
+#include "big_uint/big_uint_subtraction.h"
 #include "big_uint/big_uint_addition.h"
 #include "constants/secp256k1.h"
 

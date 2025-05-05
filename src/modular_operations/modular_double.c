@@ -1,6 +1,6 @@
 #include "modular_operations/modular_double.h"
 #include "big_uint/big_uint_shift.h"
-#include "big_uint/uint256_subtraction.h"
+#include "big_uint/big_uint_subtraction.h"
 #include "constants/secp256k1.h"
 
 inline void modular_double(const Uint256 *a, Uint256 *result) 
