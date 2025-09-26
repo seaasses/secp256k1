@@ -48,8 +48,6 @@ void benchmark(void)
 int main(void)
 {
 
-    benchmark();
-    // 12.691 on 100k
     UNITY_BEGIN();
 
     // UINT256
@@ -149,6 +147,43 @@ int main(void)
     RUN_TEST(test_subtraction_with_underflow_flag_big_numbers_that_underflow);
     RUN_TEST(test_subtraction_with_underflow_flag_big_numbers_that_do_not_underflow);
 
+    // uint256 times uint64
+    RUN_TEST(test_uint256_uint64_2_times_3);
+    RUN_TEST(test_uint256_uint64_0x8000000000000000_times_two);
+    RUN_TEST(test_uint256_uint64_max_64_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_128_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_192_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_256_bits_times_two);
+    RUN_TEST(test_uint256_uint64_max_256_bits_times_max_64_bits);
+    RUN_TEST(test_uint256_uint64_big_256_bits_times_big_64_bits);
+    RUN_TEST(test_uint256_uint64_big_256_bits_times_0);
+
+    // uint256 multiplication
+
+    RUN_TEST(test_multiplication_big_number_times_0);
+    RUN_TEST(test_multiplication_big_number_times_1);
+    RUN_TEST(test_multiplication_2_3);
+    RUN_TEST(test_multiplication_least_significant_limb_simple_overflow);
+    RUN_TEST(test_multiplication_least_significant_limb_max_64_bits_times_max_64_bits);
+    RUN_TEST(test_multiplication_least_significant_limb_overflow_random_number);
+    RUN_TEST(test_multiplication_limb_2_overflow);
+    RUN_TEST(test_multiplication_limb_2_random_2_limbs_numbers_that_carry_to_next_limb);
+    RUN_TEST(test_multiplication_2_full_limbs);
+    RUN_TEST(test_multiplication_2_big_numbers_3_limbs_each);
+    RUN_TEST(test_multiplication_3_full_limbs);
+    RUN_TEST(test_multiplication_4_full_limbs);
+
+    // uint320 plus uint256
+    RUN_TEST(test_uint320_uint256_addition_3_plus_4);
+    RUN_TEST(test_uint320_uint256_addition_max_320_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_max_64_bits_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_max_128_bits_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_max_192_bits_bits_plus_1);
+    RUN_TEST(test_uint320_uint256_addition_big_320_bits_plus_big_256_bits);
+    RUN_TEST(test_uint320_uint256_addition_big_320_0_1_pattern_plus_0_1_pattern);
+    RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_0_1_pattern);
+    RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_1_0_pattern);
+
     // MODULAR OPERATIONS
 
     // modular double
@@ -226,40 +261,6 @@ int main(void)
     RUN_TEST(test_generator_point_times_big_number_1);
     RUN_TEST(test_generator_point_times_big_number_2);
 
-    RUN_TEST(test_multiplication_2_3);
-    RUN_TEST(test_multiplication_least_significant_limb_simple_overflow);
-    RUN_TEST(test_multiplication_least_significant_limb_max_64_bits_times_max_64_bits);
-    RUN_TEST(test_multiplication_least_significant_limb_overflow_random_number);
-    RUN_TEST(test_multiplication_limb_2_overflow);
-    RUN_TEST(test_multiplication_limb_2_random_2_limbs_numbers_that_carry_to_next_limb);
-    RUN_TEST(test_multiplication_2_full_limbs);
-    RUN_TEST(test_multiplication_3_full_limbs);
-    RUN_TEST(test_multiplication_2_big_numbers_3_limbs_each);
-    RUN_TEST(test_multiplication_4_full_limbs);
-
-    // UINT512
-
-    // uint256 times uint64
-    RUN_TEST(test_uint256_uint64_2_times_3);
-    RUN_TEST(test_uint256_uint64_0x8000000000000000_times_two);
-    RUN_TEST(test_uint256_uint64_max_64_bits_times_two);
-    RUN_TEST(test_uint256_uint64_max_128_bits_times_two);
-    RUN_TEST(test_uint256_uint64_max_192_bits_times_two);
-    RUN_TEST(test_uint256_uint64_max_256_bits_times_two);
-    RUN_TEST(test_uint256_uint64_max_256_bits_times_max_64_bits);
-    RUN_TEST(test_uint256_uint64_big_256_bits_times_big_64_bits);
-    RUN_TEST(test_uint256_uint64_big_256_bits_times_0);
-
-    // uint320 plus uint256
-    RUN_TEST(test_uint320_uint256_addition_3_plus_4);
-    RUN_TEST(test_uint320_uint256_addition_max_320_bits_plus_1);
-    RUN_TEST(test_uint320_uint256_addition_max_64_bits_bits_plus_1);
-    RUN_TEST(test_uint320_uint256_addition_max_128_bits_bits_plus_1);
-    RUN_TEST(test_uint320_uint256_addition_max_192_bits_bits_plus_1);
-    RUN_TEST(test_uint320_uint256_addition_big_320_bits_plus_big_256_bits);
-    RUN_TEST(test_uint320_uint256_addition_big_320_0_1_pattern_plus_0_1_pattern);
-    RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_0_1_pattern);
-    RUN_TEST(test_uint320_uint256_addition_big_320_1_0_pattern_plus_1_0_pattern);
 
     return UNITY_END();
 }
