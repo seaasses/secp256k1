@@ -1,6 +1,6 @@
 #include "structs/big_uint.h"
 #include "unity/unity.h"
-#include "big_uint/uint256_uint64_multiplication.h"
+#include "big_uint/big_uint_multiplication.h"
 
 void test_uint256_uint64_2_times_3(void)
 {

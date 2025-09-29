@@ -1,16 +1,12 @@
 #include "modular_operations/modular_multiplication.h"
 #include "constants/secp256k1.h"
-#include "big_uint/uint256_multiplication.h"
-#include "big_uint/uint256_addition.h"
-#include "big_uint/uint256_subtraction.h"
-#include "big_uint/uint512_addition_with_overflow_flag.h"
-#include "big_uint/uint256_uint64_multiplication.h"
-#include "big_uint/uint320_uint256_addition.h"
+#include "big_uint/big_uint_multiplication.h"
+#include "big_uint/big_uint_subtraction.h"
+#include "big_uint/big_uint_multiplication.h"
 #include "big_uint/big_uint_print.h"
-#include "big_uint/uint64_multiplication.h"
-#include "big_uint/uint256_addition_with_overflow_flag.h"
+#include "big_uint/uint64_operations.h"
+#include "big_uint/big_uint_addition.h"
 #include "structs/big_uint.h"
-#include <stdio.h>
 
 inline void modular_multiplication(const Uint256 *a, const Uint256 *b, Uint256 *result)
 {
@@ -33,6 +29,7 @@ inline void modular_multiplication(const Uint256 *a, const Uint256 *b, Uint256 *
 
     // SECOND FOLD
     // TODO: add 256 bits + 128 bits addition
+
     UINT64_MULTIPLICATION(P_FOLDING_CONSTANT, tmp_2.limbs[0], tmp_0.limbs[2], tmp_0.limbs[3]);
     tmp_0.limbs[0] = 0; // and i will not need to do this
     tmp_0.limbs[1] = 0; // and this

@@ -1,6 +1,6 @@
 #include "structs/big_uint.h"
 #include "unity/unity.h"
-#include "big_uint/uint256_subtraction_with_underflow_flag.h"
+#include "big_uint/big_uint_subtraction.h"
 
 void test_subtraction_with_underflow_flag_1_0(void)
 {
